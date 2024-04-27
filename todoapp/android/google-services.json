@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "184078431860",
+    "project_id": "task-management-b2fb4",
+    "storage_bucket": "task-management-b2fb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184078431860:android:54e463d9c5d5059eb20321",
+        "android_client_info": {
+          "package_name": "todolist.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuo2KLN3258MlpSvyywUZmOy-8_nI5FI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
