@@ -5,6 +5,7 @@
 ## Features:
 
 - **Add new tasks.**
+- **schedule date and time for the task**
 - **Mark tasks as complete.**
 - **Display a list of remaining tasks.**
 - **Show a message when there are no tasks.**
