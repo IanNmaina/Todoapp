@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart'; // Importing the home_page.dart file where MyHomePage is defined
 
 void main() {
   runApp(const MyApp());
@@ -50,40 +49,63 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: [
-          TextField(
-            controller: _taskController,
-            decoration: InputDecoration(
-              labelText: 'Enter Task',
+ @override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: Column(
+      children: [
+        TextField(
+          controller: _taskController,
+          decoration: InputDecoration(
+            labelText: 'Enter Task',
+          ),
+        ),
+        ElevatedButton(
+          onPressed: _addTask,
+          child: Text('Add Task'),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: _tasks.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(_tasks[index]),
+                trailing: IconButton(
+                  icon: Icon(Icons.check),
+                  onPressed: () => _completeTask(index),
+                ),
+              );
+            },
+          ),
+        ),
+        if (_tasks.isEmpty) // Check if there are any tasks
+          Center(
+            child: Text(
+              'Nothing scheduled',
+              style: TextStyle(
+                fontSize: 30.0,
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )
+        else // If there are tasks, display the remaining count
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              '${_tasks.length} task(s) remaining',
+              style: TextStyle(
+                fontSize: 30.0,
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          ElevatedButton(
-            onPressed: _addTask,
-            child: Text('Add Task'),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _tasks.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(_tasks[index]),
-                  trailing: IconButton(
-                    icon: Icon(Icons.check),
-                    onPressed: () => _completeTask(index),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+      ],
+    ),
+  );
+}
 }
